@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Task Manager</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Student Task Manager</h1>
+    <p class="subtitle">Plan — Track — Finish</p>
+  </header>
+
+  <main class="container">
+    <!-- Left: Add Task + Tasks -->
+    <section class="left">
+      <div class="card">
+        <h2 class="card-title">Add Task</h2>
+
+        <form id="taskForm" autocomplete="off">
+          <label>
+            <span>Title</span>
+            <input id="title" type="text" placeholder="e.g., Study" required />
+          </label>
+
+          <label>
+            <span>Description</span>
+            <textarea id="description" rows="3" placeholder="What will you do?"></textarea>
+          </label>
+
+          <div class="row">
+            <label>
+              <span>Deadline</span>
+              <input id="deadline" type="date" />
+            </label>
+
+            <label>
+              <span>Status</span>
+              <select id="status">
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="actions">
+            <button id="submitBtn" class="btn primary" type="submit">Add Task</button>
+            <button id="clearAllBtn" class="btn ghost" type="button">Clear All</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Tasks</h2>
+          <div class="legend">
+            <span class="pill pending">Pending</span>
+            <span class="pill progress">In Progress</span>
+            <span class="pill done">Completed</span>
+          </div>
+        </div>
+
+        <div id="taskList" class="task-list">
+          <!-- Task items injected here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Right: Progress -->
+    <section class="right">
+      <div class="card">
+        <div class="progress-header">
+          <h2 class="card-title">Progress</h2>
+          <span id="progressText" class="muted">0/0 tasks completed</span>
+        </div>
+
+        <div class="progressbar">
+          <div id="progressBar" class="progressbar-fill" style="width:0%"></div>
+        </div>
+
+        <div class="filters">
+          <label>
+            <span>Filter</span>
+            <select id="filterSelect">
+              <option value="All">All</option>
+              <option value="Pending">Pending</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Completed">Completed</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Sort</span>
+            <select id="sortSelect">
+              <option value="deadline-asc">Deadline ↑</option>
+              <option value="deadline-desc">Deadline ↓</option>
+              <option value="created-desc">Recently Added</option>
+              <option value="created-asc">Oldest First</option>
+              <option value="title-asc">Title A→Z</option>
+              <option value="title-desc">Title Z→A</option>
+            </select>
+          </label>
+        </div>
+
+        <p class="muted small">Use the list on the left to edit, delete, or change status.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Made for students • Local storage — your data stays in your browser</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
